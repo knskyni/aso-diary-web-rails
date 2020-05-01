@@ -2,11 +2,15 @@ version: '3'
 services:
   db:
     image: mysql:5.7.30
+    volumes:
+      - ./mysql/dbdata:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: root
     ports:
       - "3306:3306"
+    command: --innodb-use-native-aio=0
+    user: "1000:50"
 
   web:
     build: .

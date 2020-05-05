@@ -82,6 +82,9 @@
     <%= form_for(@user, {html: {class: "form-signin"}, url: {controller: 'user', action: 'login'}, method: "post"}) do |form| %>
         <i class="far fa-user-circle fa-8x mb-3"></i>
         <h1 class="h3 mb-3 font-weight-normal">ログイン</h1>
+        <% if @error_message %>
+        <p class="text-danger"><%= @error_message %></p>
+        <% end %>
         <%= form.label :email, "メールアドレス", {class: "sr-only"} %>
         <%= form.email_field :email, class: "form-control", placeholder: "メールアドレス", required: true, autofocus: true %>
         <%= form.label :password, "パスワード", {class: "sr-only"} %>

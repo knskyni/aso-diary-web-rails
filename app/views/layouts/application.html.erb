@@ -26,14 +26,29 @@
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
+                    <% if @current_user %>
+                    <li class="nav-item">
+                        <%= link_to("一覧", "/diary/index", {class: "nav-link"}) %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to("新規登録", "/diary/new", {class: "nav-link"}) %>
+                    </li>
+                    <% else %>
                     <li class="nav-item">
                         <%= link_to("About", "/about", {class: "nav-link"}) %>
                     </li>
+                    <% end %>
                 </ul>
                 <ul class="navbar-nav">
+                    <% if @current_user %>
                     <li class="nav-item">
-                        <%= link_to("Login", "/login", {class: "nav-link"}) %>
+                        <%= link_to("ログアウト", "/logout", {class: "nav-link", method: "delete"}) %>
                     </li>
+                    <% else %>
+                    <li class="nav-item">
+                        <%= link_to("ログイン", "/login", {class: "nav-link"}) %>
+                    </li>
+                    <% end %>
                 </ul>
             </div>
         </div>

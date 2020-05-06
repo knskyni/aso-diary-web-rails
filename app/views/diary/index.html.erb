@@ -1,2 +1,36 @@
-<h1>Diary#index</h1>
-<p>Find me in app/views/diary/index.html.erb</p>
+<div class="container py-5">
+    <h2>日誌一覧</h2>
+    <p>あなたのクラスで投稿された日誌が表示されます。</p>
+    <table class="table">
+        <thead class="thead-light text-center">
+            <tr>
+                <th>日付</th>
+                <th>投稿者</th>
+                <th>担任チェック</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+        <% if @current_user.class_diaries.size > 0 %>
+            <% @current_user.class_diaries.each do |diary| %>
+            <tr>
+                <td><%= diary.date %></td>
+                <td><%= "#{diary.student.last_name} #{diary.student.first_name}" %></td>
+                <td><%= diary.teacher_comment == nil ? "末" : "済" %></td>
+                <td>
+                    <%= link_to("表示", "/diary/#{diary.id}", class: ["btn", "btn-outline-primary"]) %>
+                <% if diary.student_id == @current_user.student_id %>
+                    <%= link_to("編集", "/diary/#{diary.id}/edit", class: ["btn", "btn-outline-secondary"]) %>
+                    <%= link_to("削除", "/diary/#{diary.id}/destroy", class: ["btn", "btn-outline-danger"]) %>
+                <% end %>
+                </td>
+            </tr>
+            <% end %>
+        <% else %>
+            <tr>
+                <td colspan="4">投稿はまだありません</td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>

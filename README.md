@@ -8,6 +8,7 @@
 
 ## Ruby Version
 * Ruby 2.6.6
+* Rails 5.2.4.2
 
 ## System dependencies
 ### 開発環境

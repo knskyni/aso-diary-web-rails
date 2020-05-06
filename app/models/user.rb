@@ -8,4 +8,8 @@ class User < ApplicationRecord
     validates :password, {presence: true, length: {minimum: 8}}
 
     has_secure_password
+
+    def class_diaries
+        return Diary.where(class_id: self.class_id, status: true).order(date: :desc)
+    end
 end

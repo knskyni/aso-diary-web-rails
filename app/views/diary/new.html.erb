@@ -6,16 +6,25 @@
             <%= form.label :good_comment, "良かったこと" %>
             <%= form.text_area :good_comment, class: "form-control", rows: 7 %>
             <small class="form-text text-muted">16文字以上、1024文字以下</small>
+            <% @diary.errors.messages[:good_comment].each do |message| %>
+            <li class="form-text text-danger"><%= message %></li>
+            <% end %>
         </div>
         <div class="form-group">
             <%= form.label :bad_comment, "気になったこと" %>
             <%= form.text_area :bad_comment, class: "form-control", rows: 7 %>
             <small class="form-text text-muted">16文字以上、1024文字以下</small>
+            <% @diary.errors.messages[:bad_comment].each do |message| %>
+            <li class="form-text text-danger"><%= message %></li>
+            <% end %>
         </div>
         <div class="form-group">
             <%= form.label :about_comment, "一言コメント" %>
             <%= form.text_area :about_comment, class: "form-control", rows: 7 %>
             <small class="form-text text-muted">16文字以上、1024文字以下</small>
+            <% @diary.errors.messages[:about_comment].each do |message| %>
+            <li class="form-text text-danger"><%= message %></li>
+            <% end %>
         </div>
         <%= form.submit("確認に進む", class: ["btn", "btn-primary", "float-right"]) %>
     <% end %>

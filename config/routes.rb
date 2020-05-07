@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   delete '/logout' => "user#logout"
 
   get '/diary/index' => "diary#index"
+  get '/diary/new' => "diary#new"
+  post '/diary/confirm' => "diary#new_confirm"
 end

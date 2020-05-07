@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/diary/index' => "diary#index"
   get '/diary/new' => "diary#new"
   post '/diary/confirm' => "diary#new_confirm"
+  post '/diary/create' => "diary#create"
 end

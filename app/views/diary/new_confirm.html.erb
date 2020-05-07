@@ -1,0 +1,17 @@
+<div class="container py-5">
+    <h2>新規追加 :: 確認</h2>
+    <p>以下の内容でよろしいですか？</p>
+    
+    <h5>良かったこと</h5>
+    <p><%= @diary.good_comment %></p>
+    <hr>
+    <h5>気になったこと</h5>
+    <p><%= @diary.bad_comment %></p>
+    <hr>
+    <h5>一言コメント</h5>
+    <p><%= @diary.about_comment %></p>
+    <div class="text-center">
+        <a class="btn btn-secondary mr-2" href="javascript: history.back()">戻る</a>
+        <%= link_to("送信", {controller: 'diary', action: 'create'}, {method: "post", class: ["btn", "btn-primary"]}) %>
+    </div>
+</div>

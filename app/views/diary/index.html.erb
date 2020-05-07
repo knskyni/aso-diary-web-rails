@@ -19,10 +19,6 @@
                 <td><%= diary.teacher_comment == nil ? "末" : "済" %></td>
                 <td>
                     <%= link_to("表示", "/diary/#{diary.id}", class: ["btn", "btn-outline-primary"]) %>
-                <% if diary.student_id == @current_user.student_id %>
-                    <%= link_to("編集", "/diary/#{diary.id}/edit", class: ["btn", "btn-outline-secondary"]) %>
-                    <%= link_to("削除", "/diary/#{diary.id}/destroy", class: ["btn", "btn-outline-danger"]) %>
-                <% end %>
                 </td>
             </tr>
             <% end %>

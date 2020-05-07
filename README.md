@@ -16,14 +16,14 @@
 * Docker 19.03.8
 * docker-compose 1.25.4
 
-# Configuration
+## Configuration
 
-# Database creation
+## Database creation
 
-# Database initialization
+## Database initialization
 
-# How to run the test suite
+## How to run the test suite
 
-# Services (job queues, cache servers, search engines, etc.)
+## Services (job queues, cache servers, search engines, etc.)
 
-# Deployment instructions
+## Deployment instructions
